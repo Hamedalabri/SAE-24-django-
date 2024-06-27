@@ -1,0 +1,8 @@
+{% extends 'mqtt/base.html' %}
+
+{% block content %}
+    <h2>Graphique de Température</h2>
+    <div id="graph_div1">{{ graph_div1|safe }}</div>
+    <div id="graph_div2">{{ graph_div2|safe }}</div>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'mqtt/base.html' %}
+
+{% block content %}
+    <h2>Filtrer les données</h2>
+    <form method="get">
+        <label for="nom-capteur">Nom du capteur:</label>
+        <input type="text" id="nom-capteur" name="nom-capteur">
+        <label for="date-debut">Date de début:</label>
+        <input type="date" id="date-debut" name="date-debut">
+        <label for="date-fin">Date de fin:</label>
+        <input type="date" id="date-fin" name="date-fin">
+        <button type="submit">Filtrer</button>
+    </form>
+    <table>
+        <tr>
+            <th>Capteur</th>
+            <th>Date</th>
+            <th>Heure</th>
+            <th>Température</th>
+        </tr>
+        {% for donnee in donnees %}
+        <tr>
+            <td>{{ donnee.capteur.nom }}</td>
+            <td>{{ donnee.date }}</td>
+            <td>{{ donnee.heure }}</td>
+            <td>{{ donnee.temperature }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

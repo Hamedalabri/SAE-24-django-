@@ -1,0 +1,11 @@
+{% extends 'mqtt/base.html' %}
+
+{% block content %}
+    <h2>Modifier la pièce</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="piece">Pièce:</label>
+        <input type="text" id="piece" name="piece" value="{{ capteur.piece }}">
+        <button type="submit">Modifier</button>
+    </form>
+{% endblock %}

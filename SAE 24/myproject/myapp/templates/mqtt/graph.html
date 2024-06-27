@@ -1,0 +1,23 @@
+{% extends 'mqtt/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Graphique de Température</h2>
+    <form method="get" class="form-inline mb-3">
+        <label for="capteur_nom" class="mr-2">Nom/ID du Capteur:</label>
+        <input type="text" id="capteur_nom" name="capteur_nom" class="form-control mr-2" value="{{ capteur_nom }}" required>
+        <label for="date_debut" class="mr-2">Date de début:</label>
+        <input type="date" id="date_debut" name="date_debut" class="form-control mr-2" value="{{ date_debut }}">
+        <label for="date_fin" class="mr-2">Date de fin:</label>
+        <input type="date" id="date_fin" name="date_fin" class="form-control mr-2" value="{{ date_fin }}">
+        <button type="submit" class="btn btn-primary">Afficher</button>
+    </form>
+    {% if error %}
+    <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+    {% if graph_div %}
+    <div id="graph">{{ graph_div|safe }}</div>
+    {% endif %}
+</div>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% endblock %}
